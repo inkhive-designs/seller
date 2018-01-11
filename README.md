@@ -74,6 +74,10 @@ License URI -> http://creativecommons.org/publicdomain/zero/1.0/
 
 CHANGELOG
 ---------
+Version 1.3.1
+    
+    i) Minor bug fixed.
+
 Version 1.3.0
 
     i) Blog layout added.

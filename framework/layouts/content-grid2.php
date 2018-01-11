@@ -17,7 +17,7 @@
         <div class="out-thumb col-md-12">
             <header class="entry-header">
                 <h2 class="entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
-                <span class="entry-excerpt"><?php echo substr(get_the_excerpt(),0,200).(get_the_excerpt() ? "..." : "" ); ?></span>
+                <span class="entry-excerpt"><?php echo substr(get_the_excerpt(),0,150).(get_the_excerpt() ? "..." : "" ); ?></span>
             </header><!-- .entry-header -->
         </div><!--.out-thumb-->
 

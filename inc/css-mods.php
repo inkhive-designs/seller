@@ -10,7 +10,14 @@
 function seller_custom_css_mods() {
 
     $custom_css = "";
+    if ( get_theme_mod('seller_title_font') ) :
+        //var_dump(get_theme_mod('seller_title_font'));
+        $custom_css .= ".site-title,.header-title.title-font,h1,h2,.section-title { font-family: ".esc_html(get_theme_mod('seller_title_font','Helvetica'))."; }";
+    endif;
 
+    if ( get_theme_mod('seller_body_font') ) :
+        $custom_css .= "body { font-family: ".esc_html(get_theme_mod('seller_body_font','Droid Sans'))."; }";
+    endif;
     //Sidebar control
         if( get_theme_mod('seller_disable_sidebar')):
             $custom_css .= "#content #secondary { display:none; }

@@ -23,6 +23,7 @@ function seller_customize_register( $wp_customize ) {
 add_action( 'customize_register', 'seller_customize_register' );
 
 //Load All Individual Settings Based on Sections/Panels.
+require_once get_template_directory().'/framework/customizer/google-fonts.php';
 require_once get_template_directory().'/framework/customizer/header.php';
 require_once get_template_directory().'/framework/customizer/layout.php';
 require_once get_template_directory().'/framework/customizer/showcase.php';

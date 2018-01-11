@@ -1,5 +1,5 @@
 <?php
-if ( get_theme_mod('seller_main_slider_enable' ) && is_front_page() ) : 
+if ( get_theme_mod('seller_main_slider_enable' ) || is_front_page() || is_home()) :
 
 	$count_x = $count = get_theme_mod('seller_main_slider_count'); ?>
 	
@@ -9,7 +9,7 @@ if ( get_theme_mod('seller_main_slider_enable' ) && is_front_page() ) :
 			  		for ( $i = 1; $i <= $count; $i++ ) :
 				  		
 				  			$url = esc_url ( get_theme_mod('seller_slide_url'.$i) );
-				  			$img = esc_url ( get_theme_mod('seller_slide_img'.$i) );
+				  			$img =  get_theme_mod('seller_slide_img'.$i);
 				  			$title = esc_html( get_theme_mod('seller_slide_title'.$i));
 				  			$desc = esc_html( get_theme_mod('seller_slide_desc'.$i));
 				  			

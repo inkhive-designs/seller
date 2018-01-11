@@ -13,7 +13,7 @@ function seller_get_blog_layout(){
     if (get_theme_mod('seller_blog_layout') ) :
         get_template_part( $ldir , get_theme_mod('seller_blog_layout') );
     else :
-        get_template_part( $ldir ,'seller');
+        get_template_part( $ldir ,'grid');
     endif;
 }
 add_action('seller_blog_layout', 'seller_get_blog_layout');

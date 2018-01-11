@@ -136,14 +136,15 @@ add_action( 'widgets_init', 'seller_widgets_init' );
 function seller_scripts() {
 
 	//Load Default Stylesheet
-	wp_enqueue_style( 'seller-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'seller-style', get_stylesheet_uri(),array(),12325 );
 	
 	//Load Font Awesome CSS
 	wp_enqueue_style('font-awesome', get_template_directory_uri()."/assets/frameworks/font-awesome/css/font-awesome.min.css");
 	
 	//Google Fonts
-	wp_enqueue_style('seller-font', '//fonts.googleapis.com/css?family=Open+Sans:400,600,700,300');
-	
+    wp_enqueue_style('seller-title-font', '//fonts.googleapis.com/css?family='.str_replace(" ", "+", esc_html(get_theme_mod('seller_title_font', 'Helvetica')) ).':100,300,400,700' );
+
+    wp_enqueue_style('seller-body-font', '//fonts.googleapis.com/css?family='.str_replace(" ", "+", esc_html(get_theme_mod('seller_body_font', 'Droid Sans')) ).':100,300,400,700' );
 	//Load Bootstrap CSS
 	wp_enqueue_style('bootstrap-style',get_template_directory_uri()."/assets/frameworks/bootstrap/css/bootstrap.min.css");
 	
@@ -154,7 +155,7 @@ function seller_scripts() {
     wp_enqueue_style( 'hover-style', get_template_directory_uri() . '/assets/css/hover.min.css' );
 	//Load Theme Structure File. Contains Orientation of the Theme.
 
-    wp_enqueue_style( 'seller-theme-structure', get_template_directory_uri() . '/assets/theme-styles/css/'.get_theme_mod('seller_skin', 'default').'.css' );
+    wp_enqueue_style( 'seller-theme-structure', get_template_directory_uri() . '/assets/theme-styles/css/'.get_theme_mod('seller_skin', 'default').'.css',array(),12388 );
 
     //Load Tooltipster Plugin Style and Skin
 	wp_enqueue_style('tooltipster-style', get_template_directory_uri()."/assets/css/tooltipster.css");
