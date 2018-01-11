@@ -6,9 +6,9 @@
  */
 
 get_header(); ?>
-	<div class="header-title col-md-12">
+	<h2 class="header-title col-md-12">
 		<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'seller' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
-	</div>
+	</h2>
 	<section id="primary" class="content-area col-md-12">
 		<main id="main" class="site-main" role="main">
 
@@ -40,7 +40,7 @@ get_header(); ?>
 
 		<?php else : ?>
 
-			<?php get_template_part( 'content', 'none' ); ?>
+			<?php get_template_part( 'modules/content/content', 'none' ); ?>
 
 		<?php endif; ?>
 

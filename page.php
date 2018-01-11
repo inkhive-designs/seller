@@ -11,15 +11,15 @@
  */
 
 get_header(); ?>
-	<div class="header-title col-md-12">
+	<h2 class="header-title col-md-12">
 		<?php the_title(); ?>
-	</div>
+	</h2>
 	<div id="primary-mono" class="content-area col-md-8">
 		<main id="main" class="site-main" role="main">
 
 			<?php while ( have_posts() ) : the_post(); ?>
 
-				<?php get_template_part( 'content', 'page' ); ?>
+				<?php get_template_part( 'modules/content/content', 'page' ); ?>
 
 				<?php
 					// If comments are open or we have at least one comment, load up the comment template

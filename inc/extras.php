@@ -79,11 +79,4 @@ add_filter( 'wp_title', 'seller_wp_title', 10, 2 );
  * @global WP_Query $wp_query WordPress Query object.
  * @return void
  */
-function seller_setup_author() {
-	global $wp_query;
 
-	if ( $wp_query->is_author() && isset( $wp_query->post ) ) {
-		$GLOBALS['authordata'] = get_userdata( $wp_query->post->post_author );
-	}
-}
-add_action( 'wp', 'seller_setup_author' );

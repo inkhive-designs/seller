@@ -9,14 +9,14 @@
 		<?php if ( ! dynamic_sidebar( 'sidebar-primary' ) ) : ?>
 
 			<aside id="archives" class="widget">
-				<h1 class="widget-title"><?php _e( 'Archives', 'seller' ); ?></h1>
+				<h1 class="widget-title"><?php esc_html_e( 'Archives', 'seller' ); ?></h1>
 				<ul>
 					<?php wp_get_archives( array( 'type' => 'monthly' ) ); ?>
 				</ul>
 			</aside>
 
 			<aside id="meta" class="widget">
-				<h1 class="widget-title"><?php _e( 'Meta', 'seller' ); ?></h1>
+				<h1 class="widget-title"><?php esc_html_e('Meta', 'seller' ); ?></h1>
 				<ul>
 					<?php wp_register(); ?>
 					<li><?php wp_loginout(); ?></li>

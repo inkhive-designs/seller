@@ -74,6 +74,14 @@ License URI -> http://creativecommons.org/publicdomain/zero/1.0/
 
 CHANGELOG
 ---------
+Version 1.3.0
+
+    i) Blog layout added.
+    ii) Jumbosearch added.
+    iii) Sidebar control added.
+    iv) Skin added.
+    v) Page title style added.
+    vi) Added some social icons.
 
 Version 1.0
 

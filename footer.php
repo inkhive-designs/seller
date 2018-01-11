@@ -16,13 +16,12 @@
 <footer id="colophon" class="site-footer" role="contentinfo">
 	<div class="container">
 		<div class="site-info col-md-4">
-			<?php printf( __( 'Designed by %1$s.', 'seller' ), '<a href="http://rohitink.com" rel="nofollow">Rohit Tripathi</a>' ); ?>
+			<?php printf( __( 'Designed by %1$s.', 'seller' ), '<a target = "_blank" href="http://inkhive.com" rel="nofollow">Inkhive Theme</a>' ); ?>
 			<?php echo esc_html(get_theme_mod('seller_footer_text')); ?>
 		</div><!-- .site-info -->
-		<div class="footer-menu col-md-8">
-			<?php wp_nav_menu( array( 'theme_location' => 'footer' ) ); ?>
-		</div>	
-	</div><!--.container-->	
+
+        <?php get_template_part('modules/navigation/footer','menu');?>
+	</div><!--.container-->
 </footer><!-- #colophon -->
 
 <?php wp_footer(); ?>

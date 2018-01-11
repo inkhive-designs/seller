@@ -65,8 +65,8 @@ function seller_setup() {
 	) );
 	
 	//Register custom thumbnail sizes
-	//add_image_size('grid',350,350,true); //For the Grid layout
-	//add_image_size('grid2',430,292,true); //For the Grid2 layout
+	add_image_size('grid',350,350,true); //For the Grid layout
+	add_image_size('grid2',430,292,true); //For the Grid2 layout
 	add_image_size('grid3',400,275,true); //For the Grid3 layout
 	
 	add_theme_support('woocommerce');
@@ -86,8 +86,8 @@ function seller_widgets_init() {
 		'id'            => 'sidebar-primary',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
-		'before_title'  => '<h1 class="widget-title">',
-		'after_title'   => '</h1>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'   => '</h3>',
 	) );
 	
 	register_sidebar( array(
@@ -95,8 +95,8 @@ function seller_widgets_init() {
 		'id'            => 'footer-1',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
-		'before_title'  => '<h1 class="widget-title">',
-		'after_title'   => '</h1>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'   => '</h3>',
 	) );
 
 	register_sidebar( array(
@@ -104,8 +104,8 @@ function seller_widgets_init() {
 		'id'            => 'footer-2',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
-		'before_title'  => '<h1 class="widget-title">',
-		'after_title'   => '</h1>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'   => '</h3>',
 	) );
 
 	register_sidebar( array(
@@ -113,8 +113,8 @@ function seller_widgets_init() {
 		'id'            => 'footer-3',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
-		'before_title'  => '<h1 class="widget-title">',
-		'after_title'   => '</h1>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'   => '</h3>',
 	) );
 	
 	register_sidebar( array(
@@ -122,8 +122,8 @@ function seller_widgets_init() {
 		'id'            => 'footer-4',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
-		'before_title'  => '<h1 class="widget-title">',
-		'after_title'   => '</h1>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'   => '</h3>',
 	) );
 
 	
@@ -149,14 +149,14 @@ function seller_scripts() {
 	
 	//Load BxSlider CSS
 	wp_enqueue_style('bxslider-style',get_template_directory_uri()."/assets/css/bxslider.css");
-	
-	//Load Theme Structure File. Contains Orientation of the Theme.
-	wp_enqueue_style('seller-theme-structure', get_template_directory_uri()."/assets/css/main.css");
 
-	//Load the File Containing Color/Font Information
-	wp_enqueue_style('seller-theme-style', get_template_directory_uri()."/assets/css/theme.css");
-	
-	//Load Tooltipster Plugin Style and Skin
+	//hover css
+    wp_enqueue_style( 'hover-style', get_template_directory_uri() . '/assets/css/hover.min.css' );
+	//Load Theme Structure File. Contains Orientation of the Theme.
+
+    wp_enqueue_style( 'seller-theme-structure', get_template_directory_uri() . '/assets/theme-styles/css/'.get_theme_mod('seller_skin', 'default').'.css' );
+
+    //Load Tooltipster Plugin Style and Skin
 	wp_enqueue_style('tooltipster-style', get_template_directory_uri()."/assets/css/tooltipster.css");
 	wp_enqueue_style('tooltipster-skin', get_template_directory_uri()."/assets/css/tooltipster-shadow.css");
 	
@@ -170,7 +170,7 @@ function seller_scripts() {
 	wp_enqueue_script('tooltipster-js', get_template_directory_uri()."/assets/js/tooltipster.js", array('jquery'));
 
 	//Load Theme Specific JS
-	wp_enqueue_script('custom-js', get_template_directory_uri()."/assets/js/custom.js", array('jquery','hoverIntent'));
+	wp_enqueue_script('custom-js', get_template_directory_uri()."/assets/js/custom.js", array('jquery','hoverIntent'), array(),12121);
 
 
 	//Load Navigation js. This is Responsible for Converting the Main Menu into Responsive, when the browser width is switched.
@@ -286,6 +286,15 @@ if (class_exists('woocommerce')) {
  * Custom template tags for this theme.
  */
 require get_template_directory() . '/inc/template-tags.php';
+/**
+ * Customizer additions.
+ */
+require get_template_directory() . '/framework/customizer/_init.php';
+
+/**
+ *  Theme functions
+ */
+require get_template_directory() . '/framework/theme-functions.php';
 
 /**
  * Custom functions that act independently of the theme templates.
@@ -293,9 +302,13 @@ require get_template_directory() . '/inc/template-tags.php';
 require get_template_directory() . '/inc/extras.php';
 
 /**
+ * Custom CSS
+ */
+require get_template_directory() . '/inc/css-mods.php';
+/**
  * Customizer additions.
  */
-require get_template_directory() . '/inc/customizer.php';
+//require get_template_directory() . '/inc/customizer.php';
 
 /**
  * Load Jetpack compatibility file.
