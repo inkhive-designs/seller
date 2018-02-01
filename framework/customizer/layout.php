@@ -79,7 +79,7 @@ $wp_customize->add_control(
 
 $wp_customize->add_setting(
     'seller_disable_sidebar_home',
-    array( 'sanitize_callback' => 'seller_sanitize_checkbox', 'default'  => true )
+    array( 'sanitize_callback' => 'seller_sanitize_checkbox', 'default'  => false )
 );
 
 $wp_customize->add_control(
