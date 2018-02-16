@@ -46,6 +46,11 @@ function seller_custom_css_mods() {
                         color: #fff;}";
     endif;
 
+    //hide custom logo
+    if( get_theme_mod('seller_hide_title_tagline',true)):
+        $custom_css .= "#text-title-desc{display:none;}";
+    endif;
+
     wp_add_inline_style( 'seller-theme-structure', wp_strip_all_tags($custom_css) );
 
 

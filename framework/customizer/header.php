@@ -107,7 +107,8 @@ function seller_customize_register_header( $wp_customize ) {
 
     $wp_customize->add_setting(
         'seller_hide_title_tagline',
-        array( 'sanitize_callback' => 'seller_sanitize_checkbox' )
+        array( 'sanitize_callback' => 'seller_sanitize_checkbox',
+                'default'=>'false')
     );
 
     $wp_customize->add_control(
