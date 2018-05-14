@@ -74,6 +74,19 @@ License URI -> http://creativecommons.org/publicdomain/zero/1.0/
 
 CHANGELOG
 ---------
+
+Version 1.3.4
+
+	i) Updated WooCommerce Files
+	
+Version: 1.3.3
+
+    i) Site Title and Tagline minor bug fixed.
+
+Version 1.3.2
+
+    i) Sidebar issue fixed.
+	
 Version 1.3.1
     
     i) Minor bug fixed.
