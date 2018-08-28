@@ -10,19 +10,20 @@ function seller_customize_register_fonts( $wp_customize ) {
         )
     );
 
-    $font_array = array('Helvetica','Arial','sans-sarif','Lato','Khula','Open Sans','Droid Sans','Droid Serif','Roboto Condensed','Bree Serif','Oswald','Slabo','Lora');
+    $font_array = array('Helvetica','Arial','sans-sarif','Lato','Khula','Open Sans','Droid Sans','Droid Serif','Roboto Condensed','Bree Serif','Oswald','Slabo 13px','Lora');
     $fonts = array_combine($font_array, $font_array);
 
     $wp_customize->add_setting(
         'seller_title_font',
         array(
             'default'=> 'Helvetica',
-            'sanitize_callback' => 'seller_sanitize_gfont'
+            'sanitize_callback' => 'seller_sanitize_gfont',
+            'transport' => 'postMessage'
         )
     );
 
     function seller_sanitize_gfont( $input ) {
-        if ( in_array($input, array('Helvetica','Arial','sans-sarif','Lato','Khula','Open Sans','Droid Sans','Droid Serif','Roboto Condensed','Bree Serif','Oswald','Slabo','Lora') ) )
+        if ( in_array($input, array('Helvetica','Arial','sans-sarif','Lato','Khula','Open Sans','Droid Sans','Droid Serif','Roboto Condensed','Bree Serif','Oswald','Slabo 13px','Lora') ) )
             return $input;
         else
             return '';
@@ -40,8 +41,11 @@ function seller_customize_register_fonts( $wp_customize ) {
 
     $wp_customize->add_setting(
         'seller_body_font',
-        array(	'default'=> 'Droid Sans',
-            'sanitize_callback' => 'seller_sanitize_gfont' )
+        array(
+            'default'=> 'Droid Sans',
+            'sanitize_callback' => 'seller_sanitize_gfont',
+            'transport' => 'postMessage'
+        )
     );
 
     $wp_customize->add_control(

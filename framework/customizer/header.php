@@ -1,12 +1,9 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Gourav
- * Date: 1/10/2018
- * Time: 6:42 PM
- */
-
 function seller_customize_register_header( $wp_customize ) {
+    //Replace Header Text Color with, separate colors for Title and Description
+    //Override seller_site_titlecolor
+    $wp_customize->remove_control('display_header_text');
+
     //header panel
     $wp_customize->add_panel( 'seller_header_panel', array(
         'priority'       => 2,
@@ -46,12 +43,29 @@ function seller_customize_register_header( $wp_customize ) {
 
     ) );
 
+    $wp_customize->add_setting(
+        'seller_hide_topbar',
+        array(
+            'sanitize_callback'  =>  'seller_sanitize_checkbox',
+            'transport'     => 'postMessage'
+        )
+    );
+
+    $wp_customize->add_control(
+        'seller_hide_topbar', array(
+            'settings' => 'seller_hide_topbar',
+            'label'    => __( 'Hide Email & Phone', 'seller' ),
+            'section'  => 'seller_header',
+            'type'     => 'checkbox',
+        )
+    );
 
     $wp_customize->add_setting(
         'seller_email',
         array(
             'default'		=> '',
-            'sanitize_callback'	=> 'sanitize_text_field'
+            'sanitize_callback'	=> 'sanitize_text_field',
+            'transport'     => 'postMessage',
         )
     );
 
@@ -61,7 +75,7 @@ function seller_customize_register_header( $wp_customize ) {
             'label' => __('Enter your Email here.','seller'),
             'section' => 'seller_header',
             'settings' => 'seller_email',
-            'type' => 'text'
+            'type' => 'text',
         )
     );
 
@@ -69,7 +83,8 @@ function seller_customize_register_header( $wp_customize ) {
         'seller_phone',
         array(
             'default'		=> '',
-            'sanitize_callback'	=> 'sanitize_text_field'
+            'sanitize_callback'	=> 'sanitize_text_field',
+            'transport'     => 'postMessage',
         )
     );
 
@@ -79,36 +94,19 @@ function seller_customize_register_header( $wp_customize ) {
             'label' => __('Enter your Phone No. here. ','seller'),
             'section' => 'seller_header',
             'settings' => 'seller_phone',
-            'type' => 'text'
+            'type' => 'text',
         )
-    );
-
-
-    //Replace Header Text Color with, separate colors for Title and Description
-    //Override seller_site_titlecolor
-    $wp_customize->remove_control('display_header_text');
-    $wp_customize->remove_setting('header_textcolor');
-    $wp_customize->add_setting('seller_site_titlecolor', array(
-        'default'     => '#3a85ae',
-        'sanitize_callback' => 'sanitize_hex_color',
-    ));
-
-    $wp_customize->add_control(new WP_Customize_Color_Control(
-            $wp_customize,
-            'seller_site_titlecolor', array(
-            'label' => __('Site Title Color','seller'),
-            'section' => 'colors',
-            'settings' => 'seller_site_titlecolor',
-            'type' => 'color'
-        ) )
     );
 
     //Settings For Logo Area
 
     $wp_customize->add_setting(
         'seller_hide_title_tagline',
-        array( 'sanitize_callback' => 'seller_sanitize_checkbox',
-                'default'=>'false')
+        array(
+            'sanitize_callback'  =>  'seller_sanitize_checkbox',
+            'default'   =>  false,
+            'transport' => 'postMessage'
+        )
     );
 
     $wp_customize->add_control(
