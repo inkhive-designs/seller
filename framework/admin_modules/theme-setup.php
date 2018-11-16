@@ -24,6 +24,9 @@ if ( ! function_exists( 'seller_setup' ) ) :
         // Add default posts and comments RSS feed links to head.
         add_theme_support( 'automatic-feed-links' );
 
+        //Guttenberg fullscreen content
+        add_theme_support( 'align-wide' );
+
         add_theme_support('title-tag');
 
         /**
